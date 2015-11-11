@@ -144,6 +144,9 @@ class SocialNetworkGrant extends AbstractGrant
         }
         
         $response = $response->json();
+        if (!array_key_exists('email', $response)) {
+            throw new Exception\ServerErrorException('email is missing in '.$provider);
+        }
         $networkId = $response['id'];
         $username = $response['email'];
         // Check if user's username and password are correct
