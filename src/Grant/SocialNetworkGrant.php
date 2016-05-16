@@ -138,7 +138,7 @@ class SocialNetworkGrant extends AbstractGrant
         
         $response = $httpClient->get('https://graph.facebook.com/me', ['query' => [
             'access_token' => $clientAccessToken, 
-            'fields'=>'id,email,first_name,last_name,location,name']]);
+            'fields'=>'id,email,first_name,last_name,location,name,gender']]);
         if ($response->getStatusCode() != 200) {
             throw new Exception\InvalidCredentialsException();
         }
@@ -154,6 +154,8 @@ class SocialNetworkGrant extends AbstractGrant
             'first_name' => $response['first_name'],
             'last_name' => $response['last_name'],
             'name' => $response['name'],
+            'gender' => $response['gender'],
+            'location' => $response['location'],
             'access_token' => $clientAccessToken
         ]);
 
