@@ -154,8 +154,8 @@ class SocialNetworkGrant extends AbstractGrant
             'first_name' => $response['first_name'],
             'last_name' => $response['last_name'],
             'name' => $response['name'],
-            'gender' => $response['gender'],
-            'location' => $response['location'],
+            'gender' => array_key_exists('gender', $response) ? $response['gender'] : null,
+            'location' => array_key_exists('location', $response) ? $response['location'] : null,
             'access_token' => $clientAccessToken
         ]);
 
