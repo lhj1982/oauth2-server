@@ -1,3 +1,5 @@
+Oauth server support lumen 5.4.*
+
 Adapted from official oauth2-server
 
 added new grant type
